@@ -1,0 +1,11 @@
+Main problem with this algorithmic approach:
+
+This naive method of rebuilding a DNA sequence from random fragments simply concatenates
+samples in arbitrary order, without considering overlaps, sequencing errors, or coverage depth.
+In real genome assembly, algorithms must:
+  - Identify overlaps between fragments (reads),
+  - Resolve repeats and ambiguous regions,
+  - Handle sequencing errors,
+  - Build consensus sequences using graph-based methods (e.g., de Bruijn graphs).
+
+Without these steps, the reconstruction is meaningless and will not resemble the original DNA.
