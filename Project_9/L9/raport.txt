@@ -1,0 +1,46 @@
+Genomic Inverted Repeat Analysis Report (Transposon Motif Search)
+Source Genomes:
+
+Salmonella enterica LT2 (GCA_000006945.2)
+Mycobacterium tuberculosis H37Rv (GCA_000195955.2)
+Streptococcus pneumoniae NCTC7465 (GCA_001457635.1)
+
+I. Methodology and Limitations
+The method used a custom Python algorithm to detect inverted repeats (IRs) as a proxy for TIRs flanking DNA transposons.
+
+Search Parameters:
+Genome Slice: First 10,000 base pairs of each genome.
+Repeat Length (S1/S2): Minimum 4 bp, Maximum 6 bp.
+Spacer Distance (Gap between S1 and S2): Minimum 5 bp, Maximum 50 bp.
+Definition of a Match: Two sequences S1 and S2 form an IR provided S2 is the precise reverse complement of S1, and they are separated by a distance (spacer) in the specified range.
+
+II. Executive Summary of Findings
+
+In general, the search against all three bacterial genomes turned up a lot of short inverted repeat pairs. The motifs are frequent and relatively short; taken with the small spacer distance (5-50 bp), these observations suggest that most of these hits represent small, non-coding, structural elements, for instance, hairpin/stem-loop structures in regulatory regions, rather than full-length autonomous transposons.
+The relative scarcity of IRs in M. tuberculosis compared to the other two species may be related to its high G+C content, a characteristic that often influences genome structure and repeat distribution.
+
+III. Detailed Results by Organism
+
+1. Salmonella enterica subsp. enterica str. LT2
+
+Key Findings: A moderate frequency of IRs was determined (5.3 hits/kbp). The IRs are diverse, with 25 unique repeat motifs accounting for the 53 total pairs.
+Example Motifs: AGAG (Reverse Complement: CTCT), AGAT (Reverse Complement: ATCT).
+Discussion: The occurrence of numerous short, discrete IRs is a common feature of bacterial genomes both in intergenic and coding regions and may be related to either transcriptional pausing or RNA stability elements.
+
+2. Mycobacterium tuberculosis H37Rv
+
+Key Findings: This genome had the fewest IR pairs detected-10 in total-and the lowest frequency, 1.0 hit/kbp. This difference is striking and probably reflects the unique composition of the M. tuberculosis genome.
+Example Motifs: CGCAC (Reverse Complement: GTGCG), GGTTC (Reverse Complement: GAACC).
+Discussion: The relative suppression of these small repeats may relate to mechanisms of genomic stability frequently found in bacteria of high G+C content, such as M. tuberculosis.
+
+3. Streptococcus pneumoniae NCTC7465
+
+Key Findings: This genome had the highest density of short IRs, 7.7 hits/kbp, indicating that the studied region is very repetitive or structurally complicated. The 34 unique motifs suggest a high diversity of possible stem-loop forming sequences.
+Example Motifs: AGGTC (Reverse Complement: GACCT), TCAA (Reverse Complement: TTGA).
+Interpretation: A high concentration of short IRs might suggest a region with extensive gene regulation, such as attenuation or riboswitches; alternatively, it might contain highly fragmented elements, including MITEs.
+
+IV. Conclusion and Recommendations
+
+The short, perfectly matched IRs detected are in concordance with the signature of TIRs, which constitute boundaries of transposons. But due to their short length (4-6 bp) and proximity (5-50 bp spacer), it is highly likely that they represent non-mobile, functional genomic structures and not big functional bodies of transposons.
+Further analysis to confirm the presence of full-scale transposons is by:
+Relax Spacer Constraint - Re-run the analysis with a far larger maximum spacer distance, to find TIRs flanking an entire gene or element. For example 500 bp to 2000 bp Search for DRs: Check the immediate vicinity of the detected IR pairs for short DRs, which are Target Site Duplications appearing as a hallmark when the insertion of a transposon takes place. Protein Search: Examine the sequence between the TIRs for a gene that encodes a transposase protein, which would be definitive evidence of a functional mobile element.
